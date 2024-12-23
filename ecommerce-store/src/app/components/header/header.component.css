@@ -1,0 +1,66 @@
+.main-wrapper {
+  display: flex;
+  width: 100%;
+  height: auto;
+  background-color: rgb(194, 196, 197);
+}
+
+.main-wrapper .logo {
+  margin-left: 50px;
+}
+
+.main-wrapper .logo a {
+  text-decoration: none;
+  color: black;
+}
+
+.main-wrapper .logo a svg {
+  width: 60px;
+  height: 60px;
+}
+
+.main-wrapper .nav-bar {
+  margin: 15px;
+  position: absolute;
+  right: 50px;
+  display: flex;
+  top: -15px;
+}
+
+.main-wrapper .nav-bar a {
+  margin: 10px;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+.main-wrapper .nav-bar a:hover {
+  color: rgb(94, 94, 93);
+}
+
+.main-wrapper .nav-bar .cart {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-wrapper .nav-bar .cart svg {
+  align-self: center;
+}
+
+.main-wrapper .nav-bar .favourite {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-wrapper .nav-bar .favourite svg {
+  align-self: center;
+}
+
+.main-wrapper .nav-bar .profile {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-wrapper .nav-bar .profile svg {
+  align-self: center;
+}

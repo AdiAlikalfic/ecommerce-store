@@ -1,0 +1,10 @@
+<div *ngIf="isVisible" class="modal" (click)="closeModalOnOutsideClick($event)">
+  <div class="modal-content">
+    <span (click)="closedModal()" class="close">&times;</span>
+    <img [src]="product.image" alt="Product Image" />
+    <h2>{{ product.title }}</h2>
+    <p>{{ product.description }}</p>
+    <p>{{ product.price | currency : "USD" }}</p>
+    <p>Rating: {{ product.rating.rate }} ({{ product.rating.count }})</p>
+  </div>
+</div>

@@ -1,0 +1,107 @@
+<div class="main-wrapper">
+  <div class="info-sections">
+    <div class="firstName-section section">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"
+          >First Name</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="firstName"
+          [(ngModel)]="user.name.firstname"
+          [readonly]="!isEditable"
+          placeholder="First Name"
+        />
+      </div>
+    </div>
+    <div class="lastName-section section">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"
+          >Last Name</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="lastName"
+          [(ngModel)]="user.name.lastname"
+          [readonly]="!isEditable"
+          placeholder="Last Name"
+        />
+      </div>
+    </div>
+    <div class="username-section section">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"
+          >Username</label
+        >
+
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          [(ngModel)]="user.username"
+          [readOnly]="!isEditable"
+          placeholder="Username"
+        />
+      </div>
+    </div>
+    <div class="email-section section">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"
+          >Email address</label
+        >
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          [(ngModel)]="user.email"
+          [readOnly]="!isEditable"
+          placeholder="name@example.com"
+        />
+      </div>
+    </div>
+    <div class="password-section section">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"
+          >Password</label
+        >
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          [(ngModel)]="user.email"
+          [readOnly]="!isEditable"
+          placeholder="Password"
+        />
+      </div>
+    </div>
+    <div class="phone-section section">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"
+          >Phone Number</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="phone"
+          [(ngModel)]="user.phone"
+          [readOnly]="!isEditable"
+          placeholder="Phone Number"
+        />
+      </div>
+    </div>
+
+    <button
+      *ngIf="!isEditable"
+      (click)="enableEditing()"
+      class="btn btn-primary"
+    >
+      Edit
+    </button>
+    <button *ngIf="isEditable" (click)="saveChanges()" class="btn btn-success">
+      Save Changes
+    </button>
+  </div>
+</div>
+<!-- Dodati Logout button -->

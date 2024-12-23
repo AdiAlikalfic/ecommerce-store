@@ -1,0 +1,52 @@
+.main-wrapper {
+  background-color: rgb(194, 196, 197);
+}
+
+.footer-lists {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.footer-lists ul {
+  margin: 20px;
+  list-style: none;
+}
+
+.footer-lists ul li {
+  margin: 15px;
+}
+
+.footer-lists .contacts-list {
+  margin-top: 30px;
+}
+
+.footer-lists a {
+  text-decoration: none;
+  color: black;
+}
+
+.footer-lists a:hover {
+  color: rgb(94, 94, 93);
+}
+
+.social-media-icons {
+  display: flex;
+  flex-direction: row;
+}
+
+.social-media-icons .twitter-icon a svg {
+  margin: 10px;
+}
+
+.social-media-icons .instagram-icon a svg {
+  margin: 10px;
+}
+
+.social-media-icons .facebook-icon a svg {
+  margin: 10px;
+}
+
+.social-media-icons .youtube-icon a svg {
+  margin: 10px;
+}

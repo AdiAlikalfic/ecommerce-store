@@ -1,0 +1,117 @@
+<div class="main-wrapper">
+  <div class="search-bar">
+    <div class="input-group input-group-lg">
+      <button class="input-group-text" id="inputGroup-sizing-lg">Search</button>
+      <input
+        type="text"
+        class="form-control"
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-lg"
+        [(ngModel)]="searchTerm"
+        placeholder="Search for products..."
+      />
+    </div>
+  </div>
+  <div class="category-nav">
+    <ul class="nav">
+      <li class="nav-item">
+        <p
+          class="nav-link active"
+          aria-current="page"
+          (click)="selectCategory('')"
+        >
+          Show All
+        </p>
+      </li>
+      <li class="nav-item">
+        <p
+          class="nav-link"
+          aria-current="page"
+          (click)="selectCategory('men\'s clothing')"
+        >
+          Men's Clothing
+        </p>
+      </li>
+      <li class="nav-item">
+        <p class="nav-link" (click)="selectCategory('women\'s clothing')">
+          Women's clothing
+        </p>
+      </li>
+      <li class="nav-item">
+        <p class="nav-link" (click)="selectCategory('jewelery')">Jewelery</p>
+      </li>
+      <li class="nav-item">
+        <p class="nav-link" (click)="selectCategory('electronics')">
+          Electronics
+        </p>
+      </li>
+    </ul>
+  </div>
+  <div class="product-list row">
+    <div
+      class="single-card col-md-3"
+      *ngFor="let product of getFilteredProducts()"
+    >
+      <div class="card">
+        <img
+          [src]="product.image"
+          class="card-img-top"
+          alt="product-image"
+          (click)="openModal(product)"
+        />
+        <h5 class="card-title">{{ product.title | limitTitle }}</h5>
+        <!-- <p class="product-category">{{ product.category }}</p> -->
+        <p class="card-text">
+          {{ product.description | limitDescription }}
+        </p>
+        <div class="price-and-rating">
+          <p class="product-price">{{ product.price | currency : "USD" }}</p>
+          <p class="product-rating">
+            {{ product.rating.rate }} ({{ product.rating.count }})
+          </p>
+        </div>
+        <div class="buttons">
+          <button
+            class="btn btn-primary add-to-cart-btn"
+            (click)="addToCart(product)"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-bag"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"
+              />
+            </svg>
+            Add to cart
+          </button>
+          <button
+            class="btn btn-primary favourite-btn"
+            (click)="addToFavorites(product)"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-heart"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-product-modal
+    #productModal
+    [product]="selectedProduct"
+  ></app-product-modal>
+</div>

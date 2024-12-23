@@ -1,0 +1,45 @@
+.favorites-modal {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  z-index: 1000;
+}
+
+.favorites-modal ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.favorites-modal li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.favorites-modal .total-price {
+  font-weight: bold;
+  margin-top: 10px;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+  text-align: right;
+}
+
+.favorites-modal .buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.favorites-modal .buttons .add-to-cart-btn {
+  margin-left: 100px;
+}
+
+.delete-btn {
+  background-color: white;
+  border: none;
+}

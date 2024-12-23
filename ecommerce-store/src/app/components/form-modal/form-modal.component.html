@@ -1,0 +1,63 @@
+<div class="main-wrapper">
+  <div class="sign-up-form border border-dark-subtle">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"
+          >Email address</label
+        >
+        <input
+          type="email"
+          class="form-control"
+          id="exampleFormControlInput1"
+          placeholder="name@example.com"
+          formControlName="email"
+        />
+
+        <div *ngIf="email?.invalid && email?.touched" class="invalid-feedback">
+          <div *ngIf="email?.errors?.['required']">Email is required</div>
+          <div *ngIf="email?.errors?.['email']">
+            Please enter a valid email address
+          </div>
+        </div>
+      </div>
+      <label for="inputPassword5" class="form-label">Password</label>
+      <input
+        type="password"
+        id="inputPassword5"
+        class="form-control"
+        formControlName="password"
+        aria-describedby="passwordHelpBlock"
+      />
+      <div
+        *ngIf="password?.invalid && password?.touched"
+        class="invalid-feedback"
+      >
+        <div *ngIf="password?.errors?.['required']">Password is required</div>
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-light"
+        [disabled]="loginForm.invalid || !users.length"
+      >
+        Log in
+      </button>
+
+      <div *ngIf="loginError" class="alert alert-danger mt-2">
+        {{ loginError }}
+      </div>
+
+      <div class="register">
+        <p>Don't have an account?</p>
+        <button
+          type="button"
+          class="btn btn-light"
+          [routerLink]="['/register']"
+        >
+          Register here!
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- Srediti da user moze editovati profil -->
