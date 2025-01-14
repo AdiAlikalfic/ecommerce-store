@@ -16,6 +16,7 @@ import { FavoritesModalComponent } from './components/favorites-modal/favorites-
 import { FormModalComponent } from './components/form-modal/form-modal.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     FormModalComponent,
     RegisterComponent,
     ProfileComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,

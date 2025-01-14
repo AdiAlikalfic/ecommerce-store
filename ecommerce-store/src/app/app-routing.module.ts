@@ -4,6 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FormModalComponent } from './components/form-modal/form-modal.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -11,6 +12,7 @@ const routes: Routes = [
   {path: 'form', component: FormModalComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'profile', component: ProfileComponent},
+  {path: 'checkout', component: CheckoutComponent},
   {path:'**', component: HomeComponent}
 ];
 

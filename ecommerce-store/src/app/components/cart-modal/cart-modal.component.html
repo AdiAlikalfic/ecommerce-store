@@ -28,6 +28,8 @@
   <div class="total-price">Total: {{ totalPrice | currency : "USD" }}</div>
   <div class="buttons">
     <button (click)="closeModal()" class="input-group-text">Close</button>
-    <button class="check-out-btn input-group-text">Checkout</button>
+    <button class="check-out-btn input-group-text" [routerLink]="['/checkout']">
+      Checkout
+    </button>
   </div>
 </div>

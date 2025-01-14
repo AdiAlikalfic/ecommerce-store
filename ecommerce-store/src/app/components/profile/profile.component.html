@@ -102,5 +102,12 @@
     <button *ngIf="isEditable" (click)="saveChanges()" class="btn btn-success">
       Save Changes
     </button>
+    <button
+      class="btn btn-light"
+      (click)="logUserOut()"
+      [routerLink]="['/form']"
+    >
+      Logout
+    </button>
   </div>
 </div>

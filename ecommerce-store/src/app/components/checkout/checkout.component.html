@@ -1,0 +1,40 @@
+<div class="main-wrapper">
+  <div class="checkout-container">
+    <div class="card mb-3 cart-product" *ngFor="let product of cartItems">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img
+            [src]="product.image"
+            class="img-fluid rounded-start"
+            alt="{{ product.title }}"
+            class="product-img"
+          />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title product-name">{{ product.title }}</h5>
+            <p class="card-text product-description">
+              {{ product.description | limitDescription }}
+            </p>
+            <p class="card-text product-price">
+              <small class="text-body-secondary">{{
+                product.price | currency : "USD"
+              }}</small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card total-price-cont">
+      <div class="card-body">
+        <h5 class="card-title">Total: {{ totalPrice | currency : "USD" }}</h5>
+        <div class="buttons">
+          <button type="button" class="btn btn-dark">Finish the order</button>
+          <button type="button" class="btn btn-light" [routerLink]="['/home']">
+            Continue Shopping
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

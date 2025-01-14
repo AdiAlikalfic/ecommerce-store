@@ -25,12 +25,6 @@ export class CartServiceService {
   }
 
   removeFromCart(productToRemove: IProduct): void {
-    // const index = this.cartItems.findIndex(item => item.id === product.id)
-    // if (index > -1) {
-    //   this.cartItems.splice(index, 1);
-    //   this.cartItemsSubject.next(this.cartItems);
-    // }
-
     const currentCart = this.cartItemsSubject.value;
     const updatedCart = currentCart.filter(product => product.id !== productToRemove.id);
     this.cartItemsSubject.next(updatedCart)
@@ -39,5 +33,16 @@ export class CartServiceService {
   clearCart() {
     this.cartItems = [];
     this.cartItemsSubject.next([])
+  }
+
+  updateCartItem(productToUpdate: IProduct) {
+    const currentCart = this.cartItemsSubject.value;
+    const updatedCart = currentCart.map(product => {
+      if (product.id === productToUpdate.id) {
+        return {...product, quantity: productToUpdate.quantity}
+      }
+      return product
+    });
+    this.cartItemsSubject.next(updatedCart);
   }
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IUser } from '../../models/IUser';
 import { UserService } from '../../services/user.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -28,16 +29,29 @@ export class ProfileComponent {
 
   isEditable = false;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.loadUserData();
   }
 
   loadUserData() {
-    this.userService.getAllUsers().subscribe((users) => {
-      this.user = users[0];
+
+    this.authService.getUserProfile().subscribe((loggedInUser) => {
+      if(loggedInUser) {
+        const loggedInUserId = loggedInUser.id
+
+        this.userService.getAllUsers().subscribe((users) => {
+          const foundUser = users.find(u => u.id === loggedInUserId)
+          if(foundUser) {
+            this.user = foundUser
+          } else {
+            console.log('User not found');
+          }
+        })
+      }
     })
+    
   }
 
   enableEditing() {
@@ -55,5 +69,9 @@ export class ProfileComponent {
         console.error('Error updating user data', error)
       }
     )
+  }
+
+  logUserOut() {
+    this.authService.logout()
   }
 }
